@@ -23,12 +23,12 @@ const s = StyleSheet.create({
   },
   form: {
     // marginTop: 20,
-    width:width-20,
+    // width:width-20,
     // backgroundColor: "green",
 
   },
   inputContainer: {
-    marginLeft: 20,
+    // marginLeft: 20,
   },
   inputLabel: {
     fontWeight: "bold",
@@ -38,8 +38,8 @@ const s = StyleSheet.create({
   },
 });
 
-const CVC_INPUT_WIDTH = 70;
-const EXPIRY_INPUT_WIDTH = CVC_INPUT_WIDTH;
+const CVC_INPUT_WIDTH = width/2 - 50;
+const EXPIRY_INPUT_WIDTH =width/2 - 50;
 const CARD_NUMBER_INPUT_WIDTH_OFFSET = 40;
 const CARD_NUMBER_INPUT_WIDTH = Dimensions.get("window").width -60;
 const NAME_INPUT_WIDTH = CARD_NUMBER_INPUT_WIDTH;
@@ -175,11 +175,11 @@ export default class CreditCardInput extends Component {
             keyboardType="numeric"
             containerStyle={[s.inputContainer, inputContainerStyle, { width: CARD_NUMBER_INPUT_WIDTH }]} />
           
-          <View style={{flexDirection:'row'}}> 
+          <View style={{flexDirection:'row',justifyContent: 'space-between',}}> 
 
           <CCInput {...this._inputProps("expiry")}
             keyboardType="numeric"
-            containerStyle={[s.inputContainer, inputContainerStyle,expireContainer]} />
+            containerStyle={[s.inputContainer, inputContainerStyle,{width:EXPIRY_INPUT_WIDTH}]} />
           { requiresCVC &&
             <CCInput {...this._inputProps("cvc")}
               keyboardType="numeric"
